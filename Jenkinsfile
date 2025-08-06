@@ -2,32 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Clonar Repositorio') {
-    steps {
-        git branch: 'main', url: 'https://github.com/OrlandoOlivo03/flask-jenkins-ci.git'
-    }
-}
-
-        stage('Construir imagen Docker') {
+        stage('Test Docker') {
             steps {
-                script {
-                    docker.build("flask-app")
-                }
+                sh 'docker version'
             }
-        }
-
-        stage('Desplegar contenedor') {
-            steps {
-                script {
-                    sh "docker run -d -p 8000:8000 --name flask-app flask-app"
-                }
-            }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline finalizado.'
         }
     }
 }
