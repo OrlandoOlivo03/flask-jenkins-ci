@@ -3,10 +3,10 @@ pipeline {
 
     stages {
         stage('Clonar Repositorio') {
-            steps {
-                git 'https://github.com/OrlandoOlivo03/flask-jenkins-ci.git'
-            }
-        }
+    steps {
+        git branch: 'main', url: 'https://github.com/OrlandoOlivo03/flask-jenkins-ci.git'
+    }
+}
 
         stage('Construir imagen Docker') {
             steps {
