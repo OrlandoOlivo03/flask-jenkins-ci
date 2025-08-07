@@ -1,11 +1,5 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Test Docker') {
-            steps {
-                sh 'docker version'
-            }
-        }
+stage('Test Docker') {
+    steps {
+        bat 'docker version'
     }
 }
